@@ -5,7 +5,7 @@ if (location.hash == "") {
 }
 show(location.hash.replace('#', ''))
 
-let hash = window.location.hash
+let hash = window.location.hash;
 
 
 let arr = []
