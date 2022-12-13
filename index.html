@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>FAJAX</title>
+</head>
+<body>
+    <main></main>
+    <template id="login">
+        <div class="container"></div>
+        <form method="get">
+            <div><label for="uname">Username</label>
+                <input id="uname" type="text" name="uname" placeholder="Enter Username" required>
+            </div>
+            <div>
+                <label for="pass">Password</label>
+                <input id="pass" type="password" name="pass"  placeholder="Enter Password" required></div>
+                <button type="button" onclick="logFunc()">Login</button>
+                <button type="button" onclick="switchTemp()">to register</button>
+            
+        </form>
+
+    </template>
+
+    <template id="register">
+        <div class="container"></div>
+            <form method="get">
+                <div>
+                    <label for="uname1">Username</label>
+                    <input type="text" id="uname1" name="uname1" placeholder="Enter Username" required>
+                </div>
+                <div>
+                    <label for="pass1">Password</label>
+                    <input type="password" id="pass1" name="pass1" placeholder="Enter Password" required>
+                </div>
+                <button type="button" onclick="regFunc()">Save</button>
+                <button type="button" onclick="switchTemp()">to login page</button>
+            </form>
+        
+    </template>
+
+    <template id="app"><style>body{background-color: blue;}
+        </style></template>
+
+    <script src="/scripts/SPA.js"></script>
+</body>
+</html>

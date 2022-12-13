@@ -1,0 +1,72 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: 'Noto Serif Khojki', serif;
+
+}
+form{
+    font-size: 4vmin;
+    position: absolute;
+    top:20%;
+    width: 40%;
+    
+    left: 30%;
+    right: 30%;
+ 
+}
+.container{
+    background-color: purple;
+    top: 10%;
+    right: 30%;
+    bottom: 10%;
+    left: 30%;
+    opacity: 0.5;
+    z-index: -1;
+    position: absolute;
+}
+
+form h1{
+   
+    display: block;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    opacity: 1;
+}
+form label{
+    display: block;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    opacity: 1;
+}
+form input{
+    background-color: black;
+    color: rgb(241, 40, 241);
+    display: block;
+    margin-bottom: 5%;
+
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    opacity: 1;
+}
+form button{
+    background-color: black;
+    color: rgb(241, 40, 241);
+    display: block;
+    margin-bottom: 5%;
+
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    opacity: 1;
+}
+.gamemain{
+    background-color: blue;
+}
