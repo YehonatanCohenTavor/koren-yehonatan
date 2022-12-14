@@ -1,5 +1,6 @@
 class Database{
     constructor() {
+        if (JSON.parse(localStorage.getItem("clients")) == null) localStorage.setItem("clients", JSON.stringify([]))
         this.clients =localStorage.getItem('clients');
     }
 

@@ -11,27 +11,33 @@ class Server {
         let fajaxData = fajax.data;
         let fajaxFunction = fajax.func;
         if (fajaxFunction === 'login') {
-            this.loginCheck(fajaxData);
+            this.loginCheck(fajax);
         }
         if (fajaxFunction === 'register') {
-            this.register(fajaxData);
+            this.register(fajax);
         }
     }
 
-    // loginCheck(loginObject) {
-    //     let userArray = JSON.parse(this.database.clients);
-    //     for (let user of userArray) {
-    //         if (user.name == loginObject.name && user.password == loginObject.password) {
-    //             backToNetwork('login',user.contacts)
-    //         }
-    //     }
-    // }
-    backToNetwork(func,data){
-        this.network.backToClient
+    loginCheck(fajax) {
+        let userArray = JSON.parse(this.database.clients);
+        let loginObject=fajax.data;
+        fajax.response=false;
+        for (let user of userArray) {
+            if (user.name == loginObject.name && user.password == loginObject.password) {
+                fajax.response=true;
+            }
+        }
+        this.backToNetwork(fajax);
     }
-    register(registerObject) {
+
+    backToNetwork(data){
+        this.network.backToClient(data)
+    }
+
+    register(fajax) {
+        let registerObject=fajax.data
         console.log('Passed in register server')
-        if (JSON.parse(localStorage.getItem("clients")) == null) localStorage.setItem("clients", "[]");
+        
         let userArray = JSON.parse(this.database.clients);
         let isExist = false;
         for (let user of userArray) {
@@ -39,6 +45,7 @@ class Server {
                 isExist = true;
             }
         }
+        if(registerObject.name=="")   isExist = true;
         if (!isExist) {
             let newUser = {
                 name: registerObject.name,
@@ -48,8 +55,10 @@ class Server {
             userArray.push(newUser)
             console.log(newUser);
         }
+        
          this.database.newstorage(userArray)
-        this.backToNetwork('register',isExist)
+         fajax.response=isExist
+        this.backToNetwork(fajax)
     }
 }
 

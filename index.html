@@ -18,7 +18,8 @@
             <div>
                 <label for="pass">Password</label>
                 <input id="pass" type="password" name="pass"  placeholder="Enter Password" required></div>
-                <button type="submit" onclick="app.loginFajax()">Login</button>
+                <button type="button" onclick="app.loginFajax()">Login</button>
+                <div id="errorlog">One of the details are wrong!</div>
                 <button type="button" onclick="switchTemp()">to register</button>
             
         </form>
@@ -37,6 +38,8 @@
                     <input type="password" id="pass1" name="pass1" placeholder="Enter Password" required>
                 </div>
                 <button type="button" onclick="app.registerFajax()">Save</button>
+                <div id="errorreg">Username Already Exists!</div>
+                <div id="goodreg">Registered Successfully!</div>
                 <button type="button" onclick="switchTemp()">to login page</button>
             </form>
         

@@ -60,7 +60,7 @@ form button{
     background-color: black;
     color: rgb(241, 40, 241);
     display: block;
-    margin-bottom: 5%;
+    margin-top: 5%;
 
     margin-left: auto;
     margin-right: auto;
@@ -69,4 +69,26 @@ form button{
 }
 .gamemain{
     background-color: blue;
+}
+#goodreg{
+    display: none;
+    font-size: 2vmin;
+    background-color: white;
+    text-align: center;
+    color: red;
+}
+#errorreg{
+    text-align: center;
+    color: red;
+    display: none;
+    font-size: 2vmin;
+    background-color: white;
+}
+
+#errorlog{
+    text-align: center;
+    color: red;
+    display: none;
+    font-size: 2vmin;
+    background-color: white;
 }

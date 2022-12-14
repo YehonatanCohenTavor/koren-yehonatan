@@ -16,29 +16,25 @@ window.addEventListener('popstate', poppin);
 
 function poppin() {
     let newhash = location.hash.replace('#', '');
-    hash = window.location.hash
     show(newhash)
 }
 
 function show(name) {
+    location.hash=`#${name}`
     let html = document.getElementById(name).innerHTML
     let main = document.querySelector("main")
     main.innerHTML = html
 }
 
 function switchTemp() {
-    if (hash == "#login") {
-        hash = "#register"
+    if (location.hash == "#login") {
         window.location.hash = "#register"
         show("register")
-        console.log(window.location.hash)
     }
-    else if (hash == "#register") {
-        hash = "#login"
+    else if (location.hash == "#register") {
         window.location.hash = "#login"
         show("login")
     }
-    console.log(window.location.hash)
 }
 let database = new Database();
 let server = new Server(database);

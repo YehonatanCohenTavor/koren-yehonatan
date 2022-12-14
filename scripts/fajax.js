@@ -1,13 +1,14 @@
-class Fajax{
-    constructor(func,data) {
+class Fajax {
+    constructor(func, data, onloadFunc) {
         this.func = func;
         this.data = data;
+        this.onloadfunc = onloadFunc
+    }
+    
+    onload(response) {
+        if (this.onloadfunc) this.onloadfunc(response)
     }
 
-    send() {
-        console.log('FAJAX created');
-        
-    }
 }
 
 

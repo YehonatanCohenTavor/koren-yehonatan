@@ -5,6 +5,13 @@ class Network{
         this.server.defineNetwork(this)
     }
 
+    defineClient(client){
+        this.client=client
+    }
+    backToClient(fajax){
+        this.client.onLoad(fajax)
+    }
+
     sendToServer(fajax) {
         this.fajax = fajax;
         console.log('Passed network')
