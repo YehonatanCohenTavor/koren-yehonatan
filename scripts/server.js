@@ -1,10 +1,10 @@
 class Server {
     constructor(database) {
         this.database = database;
-        
+
     }
-    defineNetwork(network){
-        this.network=network
+    defineNetwork(network) {
+        this.network = network
     }
     checkInData(fajax) {
         console.log('Passed in check')
@@ -16,28 +16,37 @@ class Server {
         if (fajaxFunction === 'register') {
             this.register(fajax);
         }
+        if (fajaxFunction === 'postContact') {
+            this.postContact(fajax);
+        }
+        if (fajaxFunction === 'getContacts') {
+            this.getContacts(fajax);
+        }
+        if (fajaxFunction === 'deleteContact') {
+            this.deleteContact(fajax);
+        }
     }
 
     loginCheck(fajax) {
         let userArray = JSON.parse(this.database.clients);
-        let loginObject=fajax.data;
-        fajax.response=false;
+        let loginObject = fajax.data;
+        fajax.response = false;
         for (let user of userArray) {
             if (user.name == loginObject.name && user.password == loginObject.password) {
-                fajax.response=true;
+                fajax.response = true;
             }
         }
         this.backToNetwork(fajax);
     }
 
-    backToNetwork(data){
+    backToNetwork(data) {
         this.network.backToClient(data)
     }
 
     register(fajax) {
-        let registerObject=fajax.data
+        let registerObject = fajax.data
         console.log('Passed in register server')
-        
+
         let userArray = JSON.parse(this.database.clients);
         let isExist = false;
         for (let user of userArray) {
@@ -45,21 +54,63 @@ class Server {
                 isExist = true;
             }
         }
-        if(registerObject.name=="")   isExist = true;
+        if (registerObject.name == "") isExist = true;
         if (!isExist) {
             let newUser = {
                 name: registerObject.name,
                 password: registerObject.password,
-                contacts: [] 
+                contacts: []
             }
             userArray.push(newUser)
             console.log(newUser);
         }
-        
-         this.database.newstorage(userArray)
-         fajax.response=isExist
+
+        this.database.newstorage(userArray)
+        fajax.response = isExist
         this.backToNetwork(fajax)
     }
+
+    getContacts(fajax) {
+        let username = fajax.data;
+        let userArray = JSON.parse(this.database.clients);
+        for (let person of userArray) {
+            if (person.name == username) {
+                fajax.response = person.contacts;
+            }
+        }
+        this.backToNetwork(fajax);
+    }
+
+    postContact(fajax) {
+        let contactObject = fajax.data;
+        let userArray = JSON.parse(this.database.clients);
+        let id;
+        for (let user of userArray) {
+            if (user.name == contactObject.username) {
+                id = user.contacts.length;
+                user.contacts.push({ name: contactObject.name, phone: contactObject.phone });
+            }
+        }
+        fajax.response = id;
+        this.database.newstorage(userArray)
+        this.backToNetwork(fajax);
+    }
+
+    deleteContact(fajax){
+        let id=fajax.data.id
+        let username=fajax.data.username
+        let userArray = JSON.parse(this.database.clients);
+        for (let user of userArray) {
+            if (user.name == username) {
+              user.contacts.splice(id,1);
+            }
+        }
+        this.database.newstorage(userArray)
+        this.backToNetwork(fajax);
+    }
+       
 }
+
+
 
 

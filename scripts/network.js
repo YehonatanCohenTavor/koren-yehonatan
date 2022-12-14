@@ -3,6 +3,7 @@ class Network{
         this.server = server;
         this.fajax = '';
         this.server.defineNetwork(this)
+       
     }
 
     defineClient(client){

@@ -1,4 +1,4 @@
-
+let bool=true
 
 if (location.hash == "") {
     location.hash = "#login"
@@ -37,53 +37,22 @@ function switchTemp() {
     }
 }
 
+function canDelete(){
+    if(bool){
+        document.getElementById("delMessage").style.display="block"
+        bool=false
+        document.getElementById("deleteButton").innerText="Back"
+    }
+    else{
+        document.getElementById("delMessage").style.display="none"
+        bool=true
+        document.getElementById("deleteButton").innerText="Delete"
+    }
+}
 
+let newhistory={}
 
 let database = new Database();
 let server = new Server(database);
 let network = new Network(server);
 let app = new Client(network);
-
-// function regFunc() {
-//     let name = document.getElementById("uname1").value
-//     let password = document.getElementById("pass1").value
-//     let obj = { name: name, password: password }
-   
-//     let check = true;
-//     if (JSON.parse(localStorage.getItem("clients"))==null) localStorage.setItem("clients","[]")
-//     arr = JSON.parse(localStorage.getItem("clients"))
-//     console.log(arr)
-//     for (let i = 0; i < arr.length; i++) {
-//         if (arr[i].name == name) {
-//             check = false
-//         }
-//     }
-//     if (check == true) {
-//         arr.push(obj)
-//         localStorage.setItem("clients", JSON.stringify(arr))
-//     }
-
-// }
-
-
-
-// function logFunc() {
-//     let name = document.getElementById("uname").value
-//     let password = document.getElementById("pass").value
-//     obj1 = { name: name, password: password }
-
-//     arr = JSON.parse(localStorage.getItem("clients"))
-//     let check = false;
-//     for (let i = 0; i < arr.length; i++) {
-//         if (arr[i].name == obj1.name && arr[i].password == obj1.password) {
-//             check = true
-//             console.log(i)
-//         }
-//     }
-//     if (check == true) {
-
-//         location.hash = "#app"
-//         hash = window.location.hash
-//         show("app")
-//     }
-// }

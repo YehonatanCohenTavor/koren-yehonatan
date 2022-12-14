@@ -5,6 +5,10 @@
     font-family: 'Noto Serif Khojki', serif;
 
 }
+main{
+    overflow-x: hidden;
+}
+
 form{
     font-size: 4vmin;
     position: absolute;

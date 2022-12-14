@@ -64,10 +64,13 @@
                         <input type="text" id="addContactPhone" name="addContactPhone">
                     </div>
                     <div class="buttonsDiv">
-                        <button id="addContact">Create</button>
+                        <button id="addContact" onclick="app.createContact()">Create</button>
                     </div>
                 </div>
-                <div class="appForm"></div>
+                <div class="appForm">
+                    <button id="deleteButton" onclick="canDelete()">Delete</button>
+                    <div id="delMessage">You Can Delete Now!</div>
+                </div>
                 <div class="appForm"></div>
                 <div class="appForm"></div>
             </section>

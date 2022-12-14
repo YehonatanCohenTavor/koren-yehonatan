@@ -15,7 +15,7 @@ header{
 }
 
 section{
-    background-color: yellow;
+    background-color: white;
     border: 1px solid black;
     width:45%;
     height: 80%;
@@ -45,5 +45,23 @@ section{
     border:1px solid black;
     width:40%;
     height: 80%;
+    overflow-y: scroll;
 }
 
+#contactsPanel p{
+    background-color: rgb(169, 169, 233);
+    margin-bottom:5px;
+    font-size: larger;
+    text-align: center;
+    font-style: italic;
+}
+
+b{
+    color:red;
+}
+
+#delMessage{
+    color:red;
+    background-color: yellow;
+    display: none;
+}
