@@ -1,0 +1,49 @@
+header{
+    width: 100vw;
+    height:20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#appContainer{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+section{
+    background-color: yellow;
+    border: 1px solid black;
+    width:45%;
+    height: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+    flex-wrap: wrap
+    
+}
+
+.appForm{
+    border:1px solid black;
+    height: 30%;
+    width:40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+#contactsSection{
+    display: flex;
+    flex-direction: column;
+}
+
+#contactsPanel{
+    border:1px solid black;
+    width:40%;
+    height: 80%;
+}
+

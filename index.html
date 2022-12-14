@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="./css/appstyle.css">
     <title>FAJAX</title>
 </head>
+
 <body>
     <main></main>
     <template id="login">
@@ -14,42 +17,73 @@
         <form method="get">
             <div><label for="uname">Username</label>
                 <input id="uname" type="text" name="uname" placeholder="Enter Username" required>
-            </div>  
+            </div>
             <div>
                 <label for="pass">Password</label>
-                <input id="pass" type="password" name="pass"  placeholder="Enter Password" required></div>
-                <button type="submit" onclick="app.loginFajax()">Login</button>
-                <button type="button" onclick="switchTemp()">to register</button>
-            
+                <input id="pass" type="password" name="pass" placeholder="Enter Password" required>
+            </div>
+            <button type="submit" onclick="app.loginFajax()">Login</button>
+            <button type="button" onclick="switchTemp()">to register</button>
+
         </form>
 
     </template>
 
     <template id="register">
         <div class="container"></div>
-            <form method="get">
-                <div>
-                    <label for="uname1">Username</label>
-                    <input type="text" id="uname1" name="uname1" placeholder="Enter Username" required>
-                </div>
-                <div>
-                    <label for="pass1">Password</label>
-                    <input type="password" id="pass1" name="pass1" placeholder="Enter Password" required>
-                </div>
-                <button type="button" onclick="app.registerFajax()">Save</button>
-                <button type="button" onclick="switchTemp()">to login page</button>
-            </form>
-        
+        <form method="get">
+            <div>
+                <label for="uname1">Username</label>
+                <input type="text" id="uname1" name="uname1" placeholder="Enter Username" required>
+            </div>
+            <div>
+                <label for="pass1">Password</label>
+                <input type="password" id="pass1" name="pass1" placeholder="Enter Password" required>
+            </div>
+            <button type="button" onclick="app.registerFajax()">Save</button>
+            <button type="button" onclick="switchTemp()">to login page</button>
+        </form>
+
     </template>
 
-    <template id="app"><style>body{background-color: blue;}
-        </style>
-        </template>
-        <script src="./scripts/fajax.js"></script>
-        <script src="./scripts/database.js"></script>
-        <script src="./scripts/server.js"></script>
-        <script src="./scripts/network.js"></script>
-        <script src="./scripts/client.js"></script>
-        <script src="/scripts/SPA.js"></script>
+    <template id="app">
+        <header>
+            <h1>My Contacts</h1>
+        </header>
+        <div id="appContainer">
+            <section>
+                <div class="appForm">
+                    <div>
+                        <label for="addContactName">Contact name: </label>
+                        <input type="text" id="addContactName" name="addContactName">
+                    </div>
+                    <div>
+                        <label for="addContactPhone">Phone Number</label>
+                        <input type="text" id="addContactPhone" name="addContactPhone">
+                    </div>
+                    <div class="buttonsDiv">
+                        <button id="addContact">Create</button>
+                    </div>
+                </div>
+                <div class="appForm"></div>
+                <div class="appForm"></div>
+                <div class="appForm"></div>
+            </section>
+            <section id="contactsSection">
+                <h2>Your contacts</h2>
+                <div id="contactsPanel">
+
+                </div>
+            </section>
+        </div>
+    </template>
+
+    <script src="./scripts/fajax.js"></script>
+    <script src="./scripts/database.js"></script>
+    <script src="./scripts/server.js"></script>
+    <script src="./scripts/network.js"></script>
+    <script src="./scripts/client.js"></script>
+    <script src="/scripts/SPA.js"></script>
 </body>
+
 </html>
