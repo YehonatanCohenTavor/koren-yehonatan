@@ -1,9 +1,11 @@
 class Server {
     constructor(database) {
         this.database = database;
-
+        
     }
-
+    defineNetwork(network){
+        this.network=network
+    }
     checkInData(fajax) {
         console.log('Passed in check')
         let fajaxData = fajax.data;
@@ -16,22 +18,24 @@ class Server {
         }
     }
 
-    loginCheck(loginObject) {
-        let userArray = JSON.parse(this.database.clients);
-        for (let user of userArray) {
-            if (user.name == loginObject.name && user.password == loginObject.password) {
-                backToNetwork('login',user.contacts)
-            }
-        }
+    // loginCheck(loginObject) {
+    //     let userArray = JSON.parse(this.database.clients);
+    //     for (let user of userArray) {
+    //         if (user.name == loginObject.name && user.password == loginObject.password) {
+    //             backToNetwork('login',user.contacts)
+    //         }
+    //     }
+    // }
+    backToNetwork(func,data){
+        this.network.backToClient
     }
-
     register(registerObject) {
         console.log('Passed in register server')
         if (JSON.parse(localStorage.getItem("clients")) == null) localStorage.setItem("clients", "[]");
         let userArray = JSON.parse(this.database.clients);
         let isExist = false;
         for (let user of userArray) {
-            if (user.name == loginObject.name) {
+            if (user.name == registerObject.name) {
                 isExist = true;
             }
         }
@@ -42,10 +46,10 @@ class Server {
                 contacts: [] 
             }
             userArray.push(newUser)
-            localStorage.setItem('clients', JSON.stringify(userArray));
             console.log(newUser);
-        }else console.log('Already exists');
-        //backToNetwork('register', isExist);
+        }
+         this.database.newstorage(userArray)
+        this.backToNetwork('register',isExist)
     }
 }
 

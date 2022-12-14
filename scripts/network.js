@@ -2,14 +2,14 @@ class Network{
     constructor(server) {
         this.server = server;
         this.fajax = '';
+        this.server.defineNetwork(this)
     }
 
     sendToServer(fajax) {
         this.fajax = fajax;
         console.log('Passed network')
-        checkInData(this.fajax);
+        this.server.checkInData(this.fajax);
         this.fajax = null;
-       
     }
 
 
