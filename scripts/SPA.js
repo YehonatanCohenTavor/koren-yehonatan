@@ -36,6 +36,9 @@ function switchTemp() {
         show("login")
     }
 }
+
+
+
 let database = new Database();
 let server = new Server(database);
 let network = new Network(server);
