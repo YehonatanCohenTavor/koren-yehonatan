@@ -36,15 +36,20 @@
                     <label for="pass1">Password</label>
                     <input type="password" id="pass1" name="pass1" placeholder="Enter Password" required>
                 </div>
-                <button type="button" onclick="regFunc()">Save</button>
+                <button type="button" onclick="app.registerFajax()">Save</button>
                 <button type="button" onclick="switchTemp()">to login page</button>
             </form>
         
     </template>
 
     <template id="app"><style>body{background-color: blue;}
-        </style></template>
-    <script src="/scripts/SPA.js"></script>
-    <script src="./scripts/fajax.js"></script>
+        </style>
+        </template>
+        <script src="./scripts/fajax.js"></script>
+        <script src="./scripts/database.js"></script>
+        <script src="./scripts/server.js"></script>
+        <script src="./scripts/network.js"></script>
+        <script src="./scripts/client.js"></script>
+        <script src="/scripts/SPA.js"></script>
 </body>
 </html>

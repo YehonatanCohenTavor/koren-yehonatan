@@ -1,6 +1,6 @@
 class Database{
     constructor() {
-        this.users = localStorage.getItem('users');
+        this.clients =localStorage.getItem('clients');
     }
 }
 
