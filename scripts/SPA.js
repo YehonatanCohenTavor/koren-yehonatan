@@ -1,5 +1,4 @@
-let bool=true
-
+let deleteBool = true
 if (location.hash == "") {
     location.hash = "#login"
 }
@@ -14,13 +13,42 @@ let obj1
 history.replaceState({}, 'wd', location.hash);
 window.addEventListener('popstate', poppin);
 
+
+let database = new Database();
+let server = new Server(database);
+let network = new Network(server);
+let app = new Client(network);
+let newhistory = {}
+
+
+if (location.hash=="#app"&& sessionStorage.getItem("currentUser")=="") {
+    document.getElementById("appErrorDiv").style.display = "block"
+    document.getElementById("appShowDiv").style.display = "none"
+}
+else if(location.hash=="#app") {
+    document.getElementById("appErrorDiv").style.display = "none"
+    document.getElementById("appShowDiv").style.display = "block"
+}
+
 function poppin() {
     let newhash = location.hash.replace('#', '');
-    show(newhash)
+    show(newhash);
+    if (location.hash == '#login') {
+        sessionStorage.setItem("currentUser","");
+    }
+    if (location.hash=="#app"&& sessionStorage.getItem("currentUser")=="") {
+        document.getElementById("appErrorDiv").style.display = "block"
+        document.getElementById("appShowDiv").style.display = "none"
+    }
+    else if(location.hash=="#app") {
+        document.getElementById("appErrorDiv").style.display = "none"
+        document.getElementById("appShowDiv").style.display = "block"
+    }
+
 }
 
 function show(name) {
-    location.hash=`#${name}`
+    location.hash = `#${name}`
     let html = document.getElementById(name).innerHTML
     let main = document.querySelector("main")
     main.innerHTML = html
@@ -37,22 +65,22 @@ function switchTemp() {
     }
 }
 
-function canDelete(){
-    if(bool){
-        document.getElementById("delMessage").style.display="block"
-        bool=false
-        document.getElementById("deleteButton").innerText="Back"
+function canDelete() {
+    let contactArr = document.getElementById("contactsPanel").children
+    if (deleteBool) {
+        document.getElementById("delMessage").style.display = "block"
+        deleteBool = false
+        document.getElementById("deleteButton").innerText = "Back"
+        for (let child of contactArr) {
+            child.style.cursor = "pointer"
+        }
     }
-    else{
-        document.getElementById("delMessage").style.display="none"
-        bool=true
-        document.getElementById("deleteButton").innerText="Delete"
+    else {
+        document.getElementById("delMessage").style.display = "none"
+        deleteBool = true
+        document.getElementById("deleteButton").innerText = "Delete"
+        for (let child of contactArr) {
+            child.style.cursor = "auto"
+        }
     }
 }
-
-let newhistory={}
-
-let database = new Database();
-let server = new Server(database);
-let network = new Network(server);
-let app = new Client(network);

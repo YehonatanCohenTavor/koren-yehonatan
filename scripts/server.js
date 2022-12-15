@@ -8,22 +8,37 @@ class Server {
     }
     checkInData(fajax) {
         console.log('Passed in check')
-        let fajaxData = fajax.data;
+        // let fajaxData = fajax.data;
         let fajaxFunction = fajax.func;
-        if (fajaxFunction === 'login') {
-            this.loginCheck(fajax);
+        let method = fajax.method;
+        if (method == 'POST') {
+            if (fajaxFunction === 'login') {
+                this.loginCheck(fajax);
+            }
+            if (fajaxFunction === 'register') {
+                this.register(fajax);
+            }
+            if (fajaxFunction === 'postContact') {
+                this.postContact(fajax);
+            }
         }
-        if (fajaxFunction === 'register') {
-            this.register(fajax);
+        if (method == 'GET') {
+            if (fajaxFunction === 'getContacts') {
+                this.getContacts(fajax);
+            }
+            if (fajaxFunction == 'searchContact') {
+                this.searchContact(fajax);
+            }
         }
-        if (fajaxFunction === 'postContact') {
-            this.postContact(fajax);
+        if (method == 'DELETE') {
+            if (fajaxFunction === 'deleteContact') {
+                this.deleteContact(fajax);
+            }
         }
-        if (fajaxFunction === 'getContacts') {
-            this.getContacts(fajax);
-        }
-        if (fajaxFunction === 'deleteContact') {
-            this.deleteContact(fajax);
+        if (method == 'PUT') {
+            if (fajaxFunction === 'putContact') {
+                this.putContact(fajax);
+            }
         }
     }
 
@@ -89,6 +104,7 @@ class Server {
             if (user.name == contactObject.username) {
                 id = user.contacts.length;
                 user.contacts.push({ name: contactObject.name, phone: contactObject.phone });
+                user.contacts.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
             }
         }
         fajax.response = id;
@@ -96,19 +112,66 @@ class Server {
         this.backToNetwork(fajax);
     }
 
-    deleteContact(fajax){
-        let id=fajax.data.id
-        let username=fajax.data.username
+    deleteContact(fajax) {
+        let id = fajax.data.id
+        let username = fajax.data.username
         let userArray = JSON.parse(this.database.clients);
         for (let user of userArray) {
             if (user.name == username) {
-              user.contacts.splice(id,1);
+                user.contacts.splice(id, 1);
             }
         }
         this.database.newstorage(userArray)
         this.backToNetwork(fajax);
     }
-       
+
+    putContact(fajax) {
+        let id = fajax.data.id;
+        let newName = fajax.data.name;
+        let newPhone = fajax.data.phone;
+        let username = fajax.data.username;
+        let userArray = JSON.parse(this.database.clients);
+        for (let user of userArray) {
+            if (user.name == username) {
+                if (newName != '') {
+                    user.contacts[id].name = newName;
+                    user.contacts.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
+                }
+                if (newPhone != '') {
+                    user.contacts[id].phone = newPhone;
+                }
+            }
+        }
+        this.database.newstorage(userArray)
+        this.backToNetwork(fajax);
+
+    }
+
+    searchContact(fajax) {
+        let username = fajax.data.username;
+        let name = fajax.data.name;
+        console.log(fajax);
+        let regex = new RegExp(`^${name}`);
+        console.log(regex)
+        let userArray = JSON.parse(this.database.clients);
+        for (let user of userArray) {
+            if (user.name == username) {
+                let bool = true;
+                for (let person of user.contacts) {
+                    if (regex.test(person.name) && bool) {
+                        fajax.response = user.contacts.indexOf(person);
+                        bool = false;
+                    }
+                }
+                if (bool) {
+                    fajax.response = '';
+                }
+            }
+        }
+        this.backToNetwork(fajax);
+
+    }
+
 }
 
 

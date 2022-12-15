@@ -20,67 +20,101 @@
             </div>
             <div>
                 <label for="pass">Password</label>
-                <input id="pass" type="password" name="pass"  placeholder="Enter Password" required></div>
-                <button type="button" onclick="app.loginFajax()">Login</button>
-                <div id="errorlog">One of the details are wrong!</div>
-                <button type="button" onclick="switchTemp()">to register</button>
-            
+                <input id="pass" type="password" name="pass" placeholder="Enter Password" required>
+            </div>
+            <button type="button" onclick="app.loginFajax()">Login</button>
+            <div id="errorlog">One of the details are wrong!</div>
+            <button type="button" onclick="switchTemp()">to register</button>
+
         </form>
 
     </template>
 
     <template id="register">
         <div class="container"></div>
-            <form method="get">
-                <div>
-                    <label for="uname1">Username</label>
-                    <input type="text" id="uname1" name="uname1" placeholder="Enter Username" required>
-                </div>
-                <div>
-                    <label for="pass1">Password</label>
-                    <input type="password" id="pass1" name="pass1" placeholder="Enter Password" required>
-                </div>
-                <button type="button" onclick="app.registerFajax()">Save</button>
-                <div id="errorreg">Username Already Exists!</div>
-                <div id="goodreg">Registered Successfully!</div>
-                <button type="button" onclick="switchTemp()">to login page</button>
-            </form>
-        
+        <form method="get">
+            <div>
+                <label for="uname1">Username</label>
+                <input type="text" id="uname1" name="uname1" placeholder="Enter Username" required>
+            </div>
+            <div>
+                <label for="pass1">Password</label>
+                <input type="password" id="pass1" name="pass1" placeholder="Enter Password" required>
+            </div>
+            <button type="button" onclick="app.registerFajax()">Save</button>
+            <div id="errorreg">Username Already Exists!</div>
+            <div id="goodreg">Registered Successfully!</div>
+            <button type="button" onclick="switchTemp()">to login page</button>
+        </form>
+
     </template>
 
     <template id="app">
-        <header>
-            <h1>My Contacts</h1>
-        </header>
-        <div id="appContainer">
-            <section>
-                <div class="appForm">
-                    <div>
-                        <label for="addContactName">Contact name: </label>
-                        <input type="text" id="addContactName" name="addContactName">
+        <div id="appShowDiv">
+            <header>
+                <h1>My Contacts</h1>
+            </header>
+            <div id="appContainer">
+                <section>
+                    <div class="appForm">
+                        <div>
+                            <label for="addContactName">Contact name: </label>
+                            <input type="text" id="addContactName" name="addContactName">
+                        </div>
+                        <div>
+                            <label for="addContactPhone">Phone Number</label>
+                            <input type="text" id="addContactPhone" name="addContactPhone">
+                        </div>
+                        <div class="buttonsDiv">
+                            <button id="addContact" onclick="app.createContact()">Create</button>
+                        </div>
                     </div>
-                    <div>
-                        <label for="addContactPhone">Phone Number</label>
-                        <input type="text" id="addContactPhone" name="addContactPhone">
-                    </div>
-                    <div class="buttonsDiv">
-                        <button id="addContact" onclick="app.createContact()">Create</button>
-                    </div>
-                </div>
-                <div class="appForm">
-                    <button id="deleteButton" onclick="canDelete()">Delete</button>
-                    <div id="delMessage">You Can Delete Now!</div>
-                </div>
-                <div class="appForm"></div>
-                <div class="appForm"></div>
-            </section>
-            <section id="contactsSection">
-                <h2>Your contacts</h2>
-                <div id="contactsPanel">
+                    <div class="appForm" id="deleteDiv">
+                        <button id="deleteButton" onclick="canDelete()">Delete</button>
+                        <div id="delMessage">You Can Delete Now!</div>
 
-                </div>
-            </section>
+                    </div>
+                    <div class="appForm">
+                        <div>
+                            <label for="editByNumber">Contact number:</label>
+                            <input type="text" id="editByNumber" name="editByNumber">
+                        </div>
+                        <div>
+                            <label for="editContactName">Contact name: </label>
+                            <input type="text" id="editContactName" name="editContactName">
+                        </div>
+                        <div>
+                            <label for="editContactPhone">Phone Number</label>
+                            <input type="text" id="editContactPhone" name="editContactPhone">
+                        </div>
+                        <div class="buttonsDiv">
+                            <button id="editContact" onclick="app.putContact()">Edit contact</button>
+                        </div>
+                    </div>
+
+                    <div class="appForm">
+                        <div>
+                            <label for="searchByName">Contact name:</label>
+                            <input type="text" id="searchByName" name="searchByName">
+                        </div>
+                        <div>
+                            <p>Contact number: <span id="searchResult"></span></p>
+                        </div>
+                        <div class="buttonsDiv">
+                            <button id="searchContact" onclick="app.searchContact()">Search contact</button>
+                        </div>
+
+                    </div>
+                </section>
+                <section id="contactsSection">
+                    <h2>Your contacts</h2>
+                    <div id="contactsPanel">
+
+                    </div>
+                </section>
+            </div>
         </div>
+        <div id="appErrorDiv">ERROR PLS LOGIN</div>
     </template>
 
     <script src="./scripts/fajax.js"></script>
