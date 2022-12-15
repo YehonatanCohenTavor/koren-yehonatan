@@ -4,11 +4,19 @@
     box-sizing: border-box;
     font-family: 'Noto Serif Khojki', serif;
 
-}
-main{
-    overflow-x: hidden;
+    
 }
 
+main{
+    overflow-x: hidden;
+    background-color: #D0B49F;
+
+}
+.logScreen{
+    background-image: url('https://media.istockphoto.com/id/1403848173/vector/vector-online-chatting-pattern-online-chatting-seamless-background.jpg?s=612x612&w=0&k=20&c=W3O15mtJiNlJuIgU6S9ZlnzM_yCE27eqwTCfXGYwCSo=');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
 form{
     font-size: 4vmin;
     position: absolute;

@@ -13,40 +13,48 @@
 <body>
     <main></main>
     <template id="login">
-        <div class="container"></div>
-        <form method="get">
-            <div><label for="uname">Username</label>
-                <input id="uname" type="text" name="uname" placeholder="Enter Username" required>
-            </div>
-            <div>
-                <label for="pass">Password</label>
-                <input id="pass" type="password" name="pass" placeholder="Enter Password" required>
-            </div>
-            <button type="button" onclick="app.loginFajax()">Login</button>
-            <div id="errorlog">One of the details are wrong!</div>
-            <button type="button" onclick="switchTemp()">to register</button>
+        <div class="logScreen">
+            <header>
+                <h1>Login</h1>
+            </header>
+            <div class="container"></div>
+            <form method="get">
+                <div><label for="uname">Username</label>
+                    <input id="uname" type="text" name="uname" placeholder="Enter Username" required>
+                </div>
+                <div>
+                    <label for="pass">Password</label>
+                    <input id="pass" type="password" name="pass" placeholder="Enter Password" required>
+                </div>
+                <button type="button" onclick="app.loginFajax()">Login</button>
+                <div id="errorlog">One of the details are wrong!</div>
+                <button type="button" onclick="switchTemp()">to register</button>
 
-        </form>
-
+            </form>
+        </div>
     </template>
 
     <template id="register">
-        <div class="container"></div>
-        <form method="get">
-            <div>
-                <label for="uname1">Username</label>
-                <input type="text" id="uname1" name="uname1" placeholder="Enter Username" required>
-            </div>
-            <div>
-                <label for="pass1">Password</label>
-                <input type="password" id="pass1" name="pass1" placeholder="Enter Password" required>
-            </div>
-            <button type="button" onclick="app.registerFajax()">Save</button>
-            <div id="errorreg">Username Already Exists!</div>
-            <div id="goodreg">Registered Successfully!</div>
-            <button type="button" onclick="switchTemp()">to login page</button>
-        </form>
-
+        <div class="logScreen">
+            <header>
+                <h1>Register</h1>
+            </header>
+            <div class="container"></div>
+            <form method="get">
+                <div>
+                    <label for="uname1">Username</label>
+                    <input type="text" id="uname1" name="uname1" placeholder="Enter Username" required>
+                </div>
+                <div>
+                    <label for="pass1">Password</label>
+                    <input type="password" id="pass1" name="pass1" placeholder="Enter Password" required>
+                </div>
+                <button type="button" onclick="app.registerFajax()">Save</button>
+                <div id="errorreg">Username Already Exists!</div>
+                <div id="goodreg">Registered Successfully!</div>
+                <button type="button" onclick="switchTemp()">to login page</button>
+            </form>
+        </div>
     </template>
 
     <template id="app">
@@ -56,54 +64,77 @@
             </header>
             <div id="appContainer">
                 <section>
-                    <div class="appForm">
+                    <div class="flexFunctionDivs">
                         <div>
-                            <label for="addContactName">Contact name: </label>
-                            <input type="text" id="addContactName" name="addContactName">
+                            <h2>Add contacts</h2>
                         </div>
-                        <div>
-                            <label for="addContactPhone">Phone Number</label>
-                            <input type="text" id="addContactPhone" name="addContactPhone">
-                        </div>
-                        <div class="buttonsDiv">
-                            <button id="addContact" onclick="app.createContact()">Create</button>
+                        <div class="appForm">
+
+                            <div>
+                                <label for="addContactName">Contact name: </label>
+                                <input type="text" id="addContactName" name="addContactName">
+                            </div>
+                            <div>
+                                <label for="addContactPhone">Phone Number</label>
+                                <input type="text" id="addContactPhone" name="addContactPhone">
+                            </div>
+                            <div class="buttonsDiv">
+                                <button id="addContact" onclick="app.createContact()">Create</button>
+                            </div>
                         </div>
                     </div>
-                    <div class="appForm" id="deleteDiv">
-                        <button id="deleteButton" onclick="canDelete()">Delete</button>
-                        <div id="delMessage">You Can Delete Now!</div>
+                    <div class="flexFunctionDivs">
+                        <h2>Delete contacts</h2>
+                        <div class="appForm" id="deleteDiv">
 
-                    </div>
-                    <div class="appForm">
-                        <div>
-                            <label for="editByNumber">Contact number:</label>
-                            <input type="text" id="editByNumber" name="editByNumber">
-                        </div>
-                        <div>
-                            <label for="editContactName">Contact name: </label>
-                            <input type="text" id="editContactName" name="editContactName">
-                        </div>
-                        <div>
-                            <label for="editContactPhone">Phone Number</label>
-                            <input type="text" id="editContactPhone" name="editContactPhone">
-                        </div>
-                        <div class="buttonsDiv">
-                            <button id="editContact" onclick="app.putContact()">Edit contact</button>
+
+                            <div id="delMessage">Press the contact you wish to delete!!</div>
+                            <button id="deleteButton" onclick="canDelete()">Delete</button>
+
+
                         </div>
                     </div>
-
-                    <div class="appForm">
+                    <div class="flexFunctionDivs">
                         <div>
-                            <label for="searchByName">Contact name:</label>
-                            <input type="text" id="searchByName" name="searchByName">
+                            <h2>Edit contacts</h2>
                         </div>
-                        <div>
-                            <p>Contact number: <span id="searchResult"></span></p>
-                        </div>
-                        <div class="buttonsDiv">
-                            <button id="searchContact" onclick="app.searchContact()">Search contact</button>
-                        </div>
+                        <div class="appForm">
 
+                            <div>
+                                <label for="editByNumber">Contact number:</label>
+                                <input type="text" id="editByNumber" name="editByNumber">
+                            </div>
+                            <div>
+                                <label for="editContactName">Contact name: </label>
+                                <input type="text" id="editContactName" name="editContactName">
+                            </div>
+                            <div>
+                                <label for="editContactPhone">Phone Number</label>
+                                <input type="text" id="editContactPhone" name="editContactPhone">
+                            </div>
+                            <div class="buttonsDiv">
+                                <button id="editContact" onclick="app.putContact()">Edit contact</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flexFunctionDivs">
+                        <div>
+                            <h2>Search contacts</h2>
+                        </div>
+                        <div class="appForm">
+
+                            <div>
+                                <label for="searchByName">Contact name:</label>
+                                <input type="text" id="searchByName" name="searchByName">
+                            </div>
+
+                            <div>
+                                <p>Contact number: <span id="searchResult"></span></p>
+                            </div>
+                            <div class="buttonsDiv">
+                                <button id="searchContact" onclick="app.searchContact()">Search contact</button>
+                            </div>
+                        </div>
                     </div>
                 </section>
                 <section id="contactsSection">
@@ -114,7 +145,12 @@
                 </section>
             </div>
         </div>
-        <div id="appErrorDiv">ERROR PLS LOGIN</div>
+        <div id="appErrorDiv">
+
+            <div id="errorText">
+                <h1>ERROR 404</h1>
+            </div>
+        </div>
     </template>
 
     <script src="./scripts/fajax.js"></script>

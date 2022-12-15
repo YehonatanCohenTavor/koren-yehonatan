@@ -1,4 +1,5 @@
 let deleteBool = true
+
 if (location.hash == "") {
     location.hash = "#login"
 }
@@ -21,11 +22,11 @@ let app = new Client(network);
 let newhistory = {}
 
 
-if (location.hash=="#app"&& sessionStorage.getItem("currentUser")=="") {
+if (location.hash == "#app" && sessionStorage.getItem("currentUser") == "") {
     document.getElementById("appErrorDiv").style.display = "block"
     document.getElementById("appShowDiv").style.display = "none"
 }
-else if(location.hash=="#app") {
+else if (location.hash == "#app") {
     document.getElementById("appErrorDiv").style.display = "none"
     document.getElementById("appShowDiv").style.display = "block"
 }
@@ -34,15 +35,18 @@ function poppin() {
     let newhash = location.hash.replace('#', '');
     show(newhash);
     if (location.hash == '#login') {
-        sessionStorage.setItem("currentUser","");
+        sessionStorage.setItem("currentUser", "");
     }
-    if (location.hash=="#app"&& sessionStorage.getItem("currentUser")=="") {
+    if (location.hash == "#app" && sessionStorage.getItem("currentUser") == "") {
         document.getElementById("appErrorDiv").style.display = "block"
         document.getElementById("appShowDiv").style.display = "none"
     }
-    else if(location.hash=="#app") {
+    else if (location.hash == "#app") {
         document.getElementById("appErrorDiv").style.display = "none"
         document.getElementById("appShowDiv").style.display = "block"
+    }
+    if (location.hash != "#app") {
+        deleteBool = true
     }
 
 }
