@@ -17,7 +17,7 @@
             <header>
                 <h1>Login</h1>
             </header>
-            <div class="container"></div>
+
             <form method="get">
                 <div><label for="uname">Username</label>
                     <input id="uname" type="text" name="uname" placeholder="Enter Username" required>
@@ -28,18 +28,19 @@
                 </div>
                 <button type="button" onclick="app.loginFajax()">Login</button>
                 <div id="errorlog">One of the details are wrong!</div>
-                <button type="button" onclick="switchTemp()">to register</button>
+                <button class="switchButt" type="button" onclick="switchTemp()">to register</button>
 
             </form>
         </div>
     </template>
 
     <template id="register">
+      
         <div class="logScreen">
             <header>
                 <h1>Register</h1>
             </header>
-            <div class="container"></div>
+           
             <form method="get">
                 <div>
                     <label for="uname1">Username</label>
@@ -52,7 +53,7 @@
                 <button type="button" onclick="app.registerFajax()">Save</button>
                 <div id="errorreg">Username Already Exists!</div>
                 <div id="goodreg">Registered Successfully!</div>
-                <button type="button" onclick="switchTemp()">to login page</button>
+                <button class="switchButt" type="button" onclick="switchTemp()">to login page</button>
             </form>
         </div>
     </template>

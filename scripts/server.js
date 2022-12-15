@@ -8,7 +8,6 @@ class Server {
     }
     checkInData(fajax) {
         console.log('Passed in check')
-        // let fajaxData = fajax.data;
         let fajaxFunction = fajax.func;
         let method = fajax.method;
         if (method == 'POST') {

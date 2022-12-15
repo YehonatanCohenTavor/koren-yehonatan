@@ -3,10 +3,6 @@ class Client {
         this.network = network;
         this.fajax = null;
         this.network.defineClient(this)
-        // window.addEventListener('popstate',()=>{
-        //     if (location.hash=="#login") history.replaceState(newhistory,"",location.hash)
-        //     // this.loginFajax.bind(this)
-        // });
         window.addEventListener('load', this.appendFunc.bind(this, sessionStorage.getItem('currentUser')));
 
     }
@@ -147,11 +143,3 @@ class Client {
 
 
 }
-
- // let p = document.createElement('div');
-                // p.setAttribute('id', id);
-                // p.addEventListener('click', this.deleteContact.bind(this));
-                // if (!deleteBool) { p.style.cursor = "pointer" }
-                // else p.style.cursor = "auto"
-                // p.innerHTML = `<b>Contact ${id}</b><br><i>${contactName}</i><br>${contactPhone}<br>`;
-                // panel.appendChild(p);

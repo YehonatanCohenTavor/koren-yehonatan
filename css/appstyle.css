@@ -35,7 +35,6 @@ section{
 
 .appForm{
     background-color: #A47551;
-
     height: 90%;
     width:100%;
     display: flex;
@@ -51,6 +50,7 @@ section{
 }
 
 #contactsPanel{
+    
     border:1px solid black;
     width:40%;
     height: 80%;
@@ -66,23 +66,33 @@ section{
 }
 
 b{
+    font-family: 'Bubblegum Sans', cursive;
     color:red;
 }
 
 i{
+    font-family: 'Bubblegum Sans', cursive;
     color: brown;
 }
-
+#contactsPanel div{
+    font-family: 'Bubblegum Sans', cursive;
+}
+.appForm label{
+    font-family: 'Bubblegum Sans', cursive;
+}
 .appForm input{
+    font-family: 'Bubblegum Sans', cursive;
     width: 100%;
     background-color: #E4D4C8;
     color: #523A28;
 }
 .appForm button{
+    font-family: 'Bubblegum Sans', cursive;
     background-color: #E4D4C8;
     color: black;
 }
 #delMessage{
+    font-family: 'Bubblegum Sans', cursive;
     color:red;
     font-weight: bolder;
     display: none;
@@ -105,10 +115,6 @@ i{
     
 }
 
-/* #sagi{
-    max-height: 100%;
-    max-width: 100%;
-} */
 .flexFunctionDivs{
 width: 100%;
 }

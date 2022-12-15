@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
 *{
     margin: 0%;
     padding: 0%;
@@ -6,49 +7,35 @@
 
     
 }
-
+h1{
+    font-family: 'Bubblegum Sans', cursive;
+}
 main{
     overflow-x: hidden;
     background-color: #D0B49F;
+    height: 100vh;
+    width: 100vw;
+ 
+}
 
-}
-.logScreen{
-    background-image: url('https://media.istockphoto.com/id/1403848173/vector/vector-online-chatting-pattern-online-chatting-seamless-background.jpg?s=612x612&w=0&k=20&c=W3O15mtJiNlJuIgU6S9ZlnzM_yCE27eqwTCfXGYwCSo=');
-    background-size: contain;
-    background-repeat: no-repeat;
-}
 form{
     font-size: 4vmin;
     position: absolute;
     top:20%;
     width: 40%;
-    
+    background-color:  #A47551;
     left: 30%;
     right: 30%;
  
 }
-.container{
-    background-color: purple;
-    top: 10%;
-    right: 30%;
-    bottom: 10%;
-    left: 30%;
-    opacity: 0.5;
-    z-index: -1;
-    position: absolute;
+
+h2{
+    font-family: 'Bubblegum Sans', cursive;
 }
 
-form h1{
-   
-    display: block;
-    margin-bottom: 5%;
-    margin-top: 5%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    opacity: 1;
-}
 form label{
+    font-family: 'Bubblegum Sans', cursive;
+    font-weight: bolder;
     display: block;
     margin-top: 5%;
     margin-bottom: 2%;
@@ -58,19 +45,21 @@ form label{
     opacity: 1;
 }
 form input{
-    background-color: black;
-    color: rgb(241, 40, 241);
+    font-family: 'Bubblegum Sans', cursive;
+    background-color: #E4D4C8;
+    color: #523A28;
     display: block;
     margin-bottom: 5%;
-
+    max-width: 100px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     opacity: 1;
 }
 form button{
-    background-color: black;
-    color: rgb(241, 40, 241);
+    font-family: 'Bubblegum Sans', cursive;
+    background-color: #E4D4C8;
+    color: black;
     display: block;
     margin-top: 5%;
 
@@ -79,10 +68,9 @@ form button{
     text-align: center;
     opacity: 1;
 }
-.gamemain{
-    background-color: blue;
-}
+
 #goodreg{
+    font-family: 'Bubblegum Sans', cursive;
     display: none;
     font-size: 2vmin;
     background-color: white;
@@ -90,6 +78,7 @@ form button{
     color: red;
 }
 #errorreg{
+    font-family: 'Bubblegum Sans', cursive;
     text-align: center;
     color: red;
     display: none;
@@ -98,9 +87,14 @@ form button{
 }
 
 #errorlog{
+    font-family: 'Bubblegum Sans', cursive;
     text-align: center;
     color: red;
     display: none;
     font-size: 2vmin;
     background-color: white;
+}
+
+.switchButt{
+    margin-bottom: 5%;
 }
